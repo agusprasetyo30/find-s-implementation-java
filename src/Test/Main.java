@@ -12,34 +12,14 @@ import java.util.ArrayList;
  * @author AgusPrasetyo
  */
 public class Main {
-    /**
-     * trainingAttributes merupakan data training untuk mencari hipotesa data
-     * testingAttributes merupakan data testing untuk mencari kesimpulan berdasarkan hipotesa yang ditemukan
-     */
-    private static String[][] trainingAttributes, testingAttributes;
 
-    /**
-     * hypotesis merupakan hipotesa data berdasarkan training data yang digunakan
-     */
+    private static String[][] trainingAttributes, testingAttributes;
     private static String[] hypotesis;
 
-    /**
-     * TRAINING_DATA_FILES merupakan lokasi data training
-     */
-    private static final String TRAINING_DATA_FILES = "E:\\Data\\Kuliah (PENS)\\2. Semester 7\\5. (Praktikum) Mesin Pembelajaran (Machine Learning)\\2. Find-S\\find-s java\\training.csv";
+    // File CSV
+    private static final String TRAINING_DATA_FILES = "E:\\Data\\Kuliah (PENS)\\2. Semester 7\\5. (Praktikum) Mesin Pembelajaran (Machine Learning)\\2. Find-S\\find-s-java\\training.csv";
+    private static final String TESTING_DATA_FILES = "E:\\Data\\Kuliah (PENS)\\2. Semester 7\\5. (Praktikum) Mesin Pembelajaran (Machine Learning)\\2. Find-S\\find-s-java\\testing.csv";
 
-    /**
-     * TESTING_DATA_FILES merupakan lokasi data testing
-     */
-    private static final String TESTING_DATA_FILES = "E:\\Data\\Kuliah (PENS)\\2. Semester 7\\5. (Praktikum) Mesin Pembelajaran (Machine Learning)\\2. Find-S\\find-s java\\testing.csv";
-
-    /**
-     * Merupakakan method main yang dijalankan saat program di jalankan
-     * Method ini akan mengambil data training dan data testing dari lokasi data
-     * Lalu mencari hipotesa berdasarkan data training dan mencari kesimpulan berdasarkan hipotesa dan data testing
-     *
-     * @param args merupakan parameter dari user saat program dijalankan
-     */
     public static void main(String[] args) {
         trainingAttributes = setData(TRAINING_DATA_FILES);
         testingAttributes = setData(TESTING_DATA_FILES);
@@ -50,12 +30,6 @@ public class Main {
         testHypotesis();
     }
 
-    /**
-     * Merupakan fungsi yang digunakan untuk membaca data dari dalam file dan mengconvertnya menjadi bentuk array of string dua dimensi
-     *
-     * @param filePath merupakan lokasi file yang ingin dibaca isinya, setiap kata pada file haruslah dipisahkan dengan spasi (" ")
-     * @return merupakan isi file dalam bentuk array of string dua dimensi
-     */
     private static String[][] setData(String filePath) {
         ArrayList<String[]> resultList = new ArrayList<>(); // List untuk menampung sementara isi file
         String[][] attributes = null; // Array of string yang akan dikembalikan
@@ -91,11 +65,6 @@ public class Main {
         return attributes; // Mengembalikan data
     }
 
-    /**
-     * Fungsi untuk penentuan hipotesa berdasarkan target yang diinginkan
-     *
-     * @param target adalah target yang diinginkan
-     */
     private static void getHypotesis(String target) {
         int attributesLength = trainingAttributes.length;
 
@@ -151,9 +120,6 @@ public class Main {
             System.out.println("Attribute is empty...");
     }
 
-    /**
-     * Merupakan method yang digunakan untuk mencari kesimpulan dari data testing berdasarkan hipotesa yang didapat
-     */
     private static void testHypotesis() {
         boolean isSame; // Untuk mengecek apakah hipotesa sama dengan data testing
 
